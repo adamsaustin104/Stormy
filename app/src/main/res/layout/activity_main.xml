@@ -5,13 +5,13 @@
     <data>
         <variable
             name="weather"
-            type="com.junipersys.stormy.CurrentWeather"/>
+            type="com.junipersys.stormy.weather.Current"/>
     </data>
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/appBackground"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <TextView
         android:id="@+id/temperatureValue"
