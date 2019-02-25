@@ -21,7 +21,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@{String.valueOf(Math.round(weather.temperature))}"
+        android:text="@{String.valueOf(Math.round(weather.temperature)), default = `100`}"
         android:textColor="@android:color/white"
         android:textSize="150sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,12 +46,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@{`At ` + String.valueOf(weather.formattedTime) + ` it will be`}"
+        android:text="@{`At ` + String.valueOf(weather.formattedTime) + ` it will be`, default = `At 5:00 PM it will be`}"
         android:textColor="@color/half_white"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/temperatureValue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/locationValue"
@@ -60,12 +60,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
-        android:text="@{weather.locationLabel}"
+        android:text="Logan, UT"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/timeValue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/iconImageView"
@@ -121,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@{String.valueOf(weather.humidity)}"
+        android:text="@{String.valueOf(weather.humidity), default=`0.88`}"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/humidityLabel"
@@ -133,7 +133,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@{String.valueOf(Math.round(weather.precipChance)*100) + `%`}"
+        android:text="@{String.valueOf(Math.round(weather.precipChance * 100)) + ` %`, default = `50 %`}"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/precipLabel"
@@ -147,7 +147,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="@{weather.summary}"
+        android:text="@{weather.summary, default = `Stormy with a chance of meatballs`}"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -177,6 +177,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/refresh" />
+
+    <Button
+        android:id="@+id/hourlyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#40ffffff"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="HOURLY FORECAST"
+        android:textColor="@android:color/white"
+        android:onClick="HourlyOnClick"
+        app:layout_constraintBottom_toTopOf="@+id/darkSkyAttribute"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summaryValue" />
 
 </android.support.constraint.ConstraintLayout>
 </layout>
